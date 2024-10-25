@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from fun import *
+from fun import dog_years, fizzbuzz, word_lengths, cube_sum
 import sys
 from io import StringIO
 

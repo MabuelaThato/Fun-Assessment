@@ -1,55 +1,74 @@
 def dog_years():
+    years = 0
+    while True:
+        try:
+            n = int(input("Input a dog's age in human years: "))
+            if n < 1:
+                print("The years have to be atleast 1..")
+            elif n > 20:
+                print("The years have to be maximum 20 years..")
+            else:
+                years = n
+            break
+        except ValueError:
+            pass
+    new = 0
+    count = 0
+    while count < 2 and years > 0:
+        years -= 1
+        new += 10.5
+        count += 1
+
+    while years > 0:
+        years -= 1
+        new += 4
     
-    """
-    Create a program that counts a dog's age in dog's years. The program should only calculate dog years until 20 human years.
-    Note: For the first two years, a dog year is equal to 10.5 human years. After that, each dog year equals 4 human years.
-
-    Expected Output:
-    ```
-    Input a dog's age in human years: 15
-    The dog's age in dog's years is 73
-    ```
-    """
-
-    #enter your code here
+    print(f"The dog's age in dog's years is {round(new)}")
 
 def fizzbuzz(num):
-    """
-    Create a program that returns the numbers as a string from 1 to num. 
-    But for multiples of three print “Fizz” instead of the number, 
-    and for multiples of five print “Buzz”. For numbers which are 
-    multiples of both three and five, print “FizzBuzz”.
-
-    Expected Output:
-    fizzbuzz(15) => "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"
-    """
-
-    #enter your code here
-
+    string = ""
+    for i in range(1,num + 1):
+        if i % 3 == 0:
+            word = "Fizz "
+            if i % 5 == 0:
+                word = "FizzBuzz "
+            if i ==  num:
+                string += word.strip()
+            else:
+                string += word
+        elif i % 5 == 0:
+            word = "Buzz "
+            if i ==  num:
+                string += word.strip()
+            else:
+                string += word
+        else:
+            number = f"{i} "
+            if i ==  num:
+                string += number.strip()
+            else:
+                string += number
     
+    return string
 
 def word_lengths(sentence):
-    """
-    Create a program that takes a sentence and returns a dictionary with each unique word
-    as the key and the length of the word as the value.
-
-    Expected Output:
-    ```
-    Input a sentence: "Aunty Yankho is amazing"
-    Output: {'Aunty': 5, 'Yankho': 6, 'is': 2, 'amazing': 7}
-    ```
-    """
+    sentence = str(sentence)
+    if sentence.isdigit():
+        raise ValueError("Sentence has to be a string not numbers")
+    words = sentence.split()
+    dictionary = {}
+    for word in words:
+        if sentence.count(word) == 1:
+            dictionary[word] = len(word)
     
-    #enter your code here
+    return dictionary
+
 
 def cube_sum(number):
-    """
-    Create a program that calculates the sum of the cubes of each digit in a number.
+    nums = list(str(number))
+    sum = 0
+    for num in nums:
+        sum += (int(num) ** 3) 
+
+    return sum
     
-    Expected Output:
-    ```
-    cube_sum(123) => 1^3 + 2^3 + 3^3 = 1 + 8 + 27 = 36
-    ```
-    """
-    
-    #enter your code here
